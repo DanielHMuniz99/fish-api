@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+ Route::resource('users', 'UserController');
+
+//  Route::resource('fish', 'FishController');
+
+//  Route::get('/fish', 'FishController@index')->name('fish');
+
+
+ Route::get('/fish', 'App\Http\Controllers\FishController@index');
