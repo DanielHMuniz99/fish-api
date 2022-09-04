@@ -20,7 +20,7 @@ class FishController extends Controller
      */
     public function index(Request $request) :JsonResponse
     {
-        return response()->json($this->fishModel->getFish(), 200);
+        return response()->json($this->fishModel->getFish($request), 200);
     }
 
     /**
