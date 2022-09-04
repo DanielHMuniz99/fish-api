@@ -20,11 +20,7 @@ class FishController extends Controller
      */
     public function index(Request $request) :JsonResponse
     {
-        $query = $this->fishModel::query();
-
-        if ($request->name) $query->where("name", "like", "%{$request->name}%");
-
-        return response()->json($query->get(), 200);
+        return response()->json($this->fishModel->getFish(), 200);
     }
 
     /**
