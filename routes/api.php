@@ -15,10 +15,5 @@ use Illuminate\Http\Request;
 
  Route::resource('users', 'UserController');
 
-//  Route::resource('fish', 'FishController');
-
-//  Route::get('/fish', 'FishController@index')->name('fish');
-
-
  Route::get('/fish', 'App\Http\Controllers\FishController@index');
  Route::get('/fish/{id}', 'App\Http\Controllers\FishController@show');

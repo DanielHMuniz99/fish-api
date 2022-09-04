@@ -23,4 +23,9 @@ class Fish extends Authenticatable
         "temperature_min",
         "temperature_max"
     ];
+
+    public function getFish($request)
+    {
+        return $this->get();
+    }
 }

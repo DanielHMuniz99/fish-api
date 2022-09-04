@@ -9,13 +9,18 @@ use Illuminate\Http\JsonResponse;
 
 class FishController extends Controller
 {
+    private $fishModel;
+
+    public function __construct()
+    {
+        $this->fishModel = new Fish;
+    }
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index() :JsonResponse
+    public function index(Request $request) :JsonResponse
     {
-        return response()->json(Fish::get(), 200);
-        // return response()->json([], 200);
+        return response()->json($this->fishModel->getFish($request), 200);
     }
 
     /**
