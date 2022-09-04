@@ -21,3 +21,4 @@ use Illuminate\Http\Request;
 
 
  Route::get('/fish', 'App\Http\Controllers\FishController@index');
+ Route::get('/fish/{id}', 'App\Http\Controllers\FishController@show');
