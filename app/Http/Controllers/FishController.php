@@ -13,16 +13,18 @@ class FishController extends Controller
 
     public function __construct()
     {
-        $this->fishModel = new Fish;
+        $this->fishModel = new Fish();
     }
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(Request $request) :JsonResponse
     {
-        if ($request->name) $this->fishModel->where("name", "like", "%{$request->name}%");
+        $query = $this->fishModel::query();
 
-        return response()->json($this->fishModel->get(), 200);
+        if ($request->name) $query->where("name", "like", "%{$request->name}%");
+
+        return response()->json($query->get(), 200);
     }
 
     /**
