@@ -26,6 +26,9 @@ class Fish extends Authenticatable
 
     public function getFish($request)
     {
-        return $this->get();
+        $model = $this;
+        if ($request->name) $model->whereLike("name", $request->name);
+
+        return $model->get();
     }
 }
